@@ -38,5 +38,10 @@ export class PhoneApiService {
   }
 
   // DELETE /api/phones/:id
+  deleteOnePhone(oneId: string) {
+      return this.httpThang.delete(
+        `${environment.backendUrl}/api/phones/${oneId}`
+      ).toPromise();
+  }
 
 }
