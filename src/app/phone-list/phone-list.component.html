@@ -7,5 +7,8 @@
       By <i>{{ onePhone.brand }}</i>
     </p>
     <img [src]="onePhone.image" />
+
+    <!-- <a routerLink="/phones/{{ onePhone._id }}"> See Details </a> -->
+    <a [routerLink]="['/phones', onePhone._id]"> See Details </a>
   </li>
 </ul>

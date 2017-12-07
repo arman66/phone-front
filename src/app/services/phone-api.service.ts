@@ -31,6 +31,11 @@ export class PhoneApiService {
   // POST   /api/phones
 
   // GET    /api/phones/:id
+  getOnePhone(oneId: string) {
+      return this.httpThang.get(
+        `${environment.backendUrl}/api/phones/${oneId}`
+      ).toPromise();
+  }
 
   // DELETE /api/phones/:id
 

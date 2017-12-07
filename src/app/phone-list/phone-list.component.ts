@@ -16,9 +16,6 @@ export class PhoneListComponent implements OnInit {
   ngOnInit() {
       this.phoneThang.getPhones()
         .then((phoneResults: Phone[]) => {
-            console.log("Phone List API");
-            console.log(phoneResults);
-
             // THE MAGIC HAPPENS HERE
             // (assign API results to component property)
             this.phones = phoneResults;
