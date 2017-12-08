@@ -1,0 +1,9 @@
+div {
+  display: flex;
+}
+
+.box {
+  border: 5px solid grey;
+  box-sizing: border-box;
+  width: 50%;
+}

@@ -6,7 +6,7 @@
   by <i>{{ phoneInfo.brand }}</i>
 </p>
 
-<img [src]="phoneInfo.image" />
+<img *ngIf="phoneInfo.image" [src]="phoneInfo.image" />
 
 
 <h3> Specs </h3>
@@ -20,4 +20,6 @@
 
 <h3> Danger Zone </h3>
 
-<button (click)="startDeleteAjax()"> Delete This Phone </button>
+<button *ngIf="phoneInfo._id" (click)="startDeleteAjax()">
+  Delete This Phone
+</button>

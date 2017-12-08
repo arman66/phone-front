@@ -4,7 +4,15 @@
   <nav>
     <a routerLink="/"> Home </a>
     <a routerLink="/phones"> Our Phones </a>
+    <a *ngIf="!userThang.currentUser"
+        routerLink="/join">
+       Join
+    </a>
   </nav>
+
+  <p *ngIf="userThang.currentUser">
+    Hello, <b>{{ userThang.currentUser.username }}</b>.
+  </p>
 </header>
 
 <router-outlet></router-outlet>
