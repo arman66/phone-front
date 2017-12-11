@@ -8,6 +8,10 @@
         routerLink="/join">
        Join
     </a>
+    <button *ngIf="userThang.currentUser"
+        (click)="startLogOutAjax()">
+      Log Out
+    </button>
   </nav>
 
   <p *ngIf="userThang.currentUser">

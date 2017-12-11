@@ -24,7 +24,10 @@ export class PhoneApiService {
   // GET    /api/phones
   getPhones() {
       return this.httpThang.get(
-        `${environment.backendUrl}/api/phones`
+        `${environment.backendUrl}/api/phones`,
+
+        // send the cookies even to a different domain
+        { withCredentials: true }
       ).toPromise();
   }
 
@@ -33,14 +36,20 @@ export class PhoneApiService {
   // GET    /api/phones/:id
   getOnePhone(oneId: string) {
       return this.httpThang.get(
-        `${environment.backendUrl}/api/phones/${oneId}`
+        `${environment.backendUrl}/api/phones/${oneId}`,
+
+        // send the cookies even to a different domain
+        { withCredentials: true }
       ).toPromise();
   }
 
   // DELETE /api/phones/:id
   deleteOnePhone(oneId: string) {
       return this.httpThang.delete(
-        `${environment.backendUrl}/api/phones/${oneId}`
+        `${environment.backendUrl}/api/phones/${oneId}`,
+      
+        // send the cookies even to a different domain
+        { withCredentials: true }
       ).toPromise();
   }
 

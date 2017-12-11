@@ -29,7 +29,10 @@ export class UserApiService {
   postSignup(userInfo: User) {
       return this.httpThang.post(
           `${environment.backendUrl}/api/signup`,
-          userInfo
+          userInfo,
+
+          // send the cookies even to a different domain
+          { withCredentials: true }
         )
         .toPromise()
         .then((apiResult: any) => {
@@ -44,7 +47,10 @@ export class UserApiService {
   postLogin(userInfo: User) {
       return this.httpThang.post(
           `${environment.backendUrl}/api/login`,
-          userInfo
+          userInfo,
+
+          // send the cookies even to a different domain
+          { withCredentials: true }
         )
         .toPromise()
         .then((apiResult: any) => {
@@ -56,7 +62,37 @@ export class UserApiService {
   }
 
   // DELETE /api/logout
+  logout() {
+      return this.httpThang.delete(
+        `${environment.backendUrl}/api/logout`,
+
+        // send the cookies even to a different domain
+        { withCredentials: true }
+      )
+      .toPromise()
+      .then((apiResult) => {
+          // update "currentUser" since we are logged OUT
+          this.currentUser = null;
+          // return "apiResult" for the component
+          return apiResult;
+      });
+  }
 
   // GET /api/checklogin
+  getCheckLogin() {
+      return this.httpThang.get(
+        `${environment.backendUrl}/api/checklogin`,
+
+        // send the cookies even to a different domain
+        { withCredentials: true }
+      )
+      .toPromise()
+      .then((apiResult: any) => {
+          // update "currentUser" in case we are logged in
+          this.currentUser = apiResult.userInfo;
+          // return "apiResult" for the component
+          return apiResult;
+      });
+  }
 
 }
