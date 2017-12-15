@@ -12,7 +12,7 @@ export class AppComponent implements OnInit {
   title = 'app';
 
   constructor (
-    private userThang: UserApiService,
+    public userThang: UserApiService,
     private routerThang: Router
   ) { }
 
