@@ -1,5 +1,9 @@
 <h2> Sign Up </h2>
 
+<p *ngIf="errorMessage" class="error">
+  {{ errorMessage }}
+</p>
+
 <form (ngSubmit)="startSignupAjax()">
   <label for="fullname-input"> Full Name </label>
   <input  id="fullname-input" type="text" placeholder="e.g. Bruce Wayne"
